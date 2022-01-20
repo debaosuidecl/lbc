@@ -4,6 +4,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
+import 'package:workmanager/workmanager.dart';
+
 // import 'package:pricing_calculator/models/currency.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 // import '../models/http_exception.dart';
@@ -281,6 +283,11 @@ class Auth with ChangeNotifier {
       // _autoLogout();
 
       notifyListeners();
+
+      Workmanager().registerOneOffTask(
+        "socket_worker_process",
+        "socket_task",
+      );
 
       final prefs = await SharedPreferences.getInstance();
       final userData = json.encode(

@@ -72,7 +72,7 @@ class _HomeState extends State<Dashboard> {
     fetchProfileData();
 
     _permission();
-    initConnect();
+    // initConnect();
     super.initState();
   }
 
